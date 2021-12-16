@@ -11,7 +11,8 @@ fun main() {
 
     // Puzzle #1
     val (position, depth) = navigationInstructions.reduce {
-            (accPosition, accDepth), (position, depth) -> accPosition + position to accDepth + depth
+        (accPosition, accDepth), (position, depth) ->
+        accPosition + position to accDepth + depth
     }
     println(position * depth)
 
