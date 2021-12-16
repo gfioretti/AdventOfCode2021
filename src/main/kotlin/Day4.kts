@@ -18,9 +18,10 @@ fun firstPuzzle() {
 
 fun secondPuzzle() {
     val file = openFile()
-    val bingoList = file[0].split(",").map { it.toInt() }
-    val boards = BingoBoard.from(src = file.subList(1, file.indices.last))
-    val results = runTheSecondBingo(bingoNumbers = bingoList, bingoBoard = boards)
+    val results = runTheSecondBingo(
+        bingoNumbers = file[0].split(",").map { it.toInt() },
+        bingoBoard = BingoBoard.from(src = file.subList(1, file.indices.last))
+    )
     val sumOfNotMarked = results.value.listOfBoards.last().listOfRows.flatMap { it.row.filterNot { it2 -> it2.marked } }
         .map { it.number }
         .fold(initial = 0, operation = { acc, number -> acc + number })
