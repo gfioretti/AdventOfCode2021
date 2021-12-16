@@ -13,7 +13,7 @@ tailrec fun List<CharArray>.countMostCommonChar(index: Int = 0, acc: List<Int> =
     return if (index == this[0].size) acc
     else countMostCommonChar(
         index = index.inc(),
-        acc = acc.plus(this.map { it[index] }.count { it == '0' }.let { if ((this.size - it) < this.size / 2) 0 else 1})
+        acc = acc.plus(this.map { it[index] }.count { it == '0' }.let { if ((this.size - it) < this.size / 2) 0 else 1 })
     )
 }
 
